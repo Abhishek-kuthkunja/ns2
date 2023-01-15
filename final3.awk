@@ -1,0 +1,13 @@
+BEGIN{
+    count=0;
+}
+{
+    event=$1;
+    if(event=="r")
+    {
+        count++;
+    }
+}
+END{
+    printf("%d",count);
+}
