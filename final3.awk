@@ -1,13 +1,12 @@
-BEGIN{
-    count=0;
+BEGIN {
+    ctcp=0;
+    cudp=0;
 }
 {
-    event=$1;
-    if(event=="r")
-    {
-        count++;
-    }
+    pkt=$5;
+    if(pkt=="cbr") { cudp++;}
+    if(pkt=="tcp") { ctcp++;}
 }
-END{
-    printf("%d",count);
+END {
+    printf("No of packets sent\nTcp : %d\nUdp : %d\n",ctcp,cudp);
 }
